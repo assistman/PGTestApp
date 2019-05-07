@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.markets.mobile</groupId>
+    <artifactId>indigo-mobile</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <timestamp>${maven.build.timestamp}</timestamp>
+        <maven.build.timestamp.format>yyyyMMddHHmmss</maven.build.timestamp.format>
+        <artifactory.url>https://artifactory.internal-services.com/artifactory</artifactory.url>
+        <indigo.version>PHONEGAP-1.62.0-7706-SNAPSHOT</indigo.version>
+        <buildType/>
+    </properties>
+
+    <profiles>
+        <profile>
+            <id>WinProfile</id>
+            <activation>
+                <os><family>windows</family></os>
+            </activation>
+        </profile>
+        <profile>
+            <id>ReleaseBuild</id>
+            <properties>
+                <buildType>--release</buildType>
+            </properties>
+        </profile>
+        <profile>
+            <id>UnixProfile</id>
+            <activation>
+                <os><family>unix</family></os>
+            </activation>
+        </profile>
+        <profile>
+            <id>force-clean</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-antrun-plugin</artifactId>
+                        <version>1.8</version>
+                        <executions>
+                            <execution>
+                                <id>clean-node-modules</id>
+                                <phase>clean</phase>
+                                <configuration>
+                                    <target name="cleaning_node_modules">
+                                        <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                            <arg line="/c rd /s /q node_modules" />
+                                        </exec>
+                                        <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                            <arg line="-c 'rm -rfd node_modules'" />
+                                        </exec>
+                                    </target>
+                                </configuration>
+                                <goals>
+                                    <goal>run</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <id>prepare</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <target name="cleaning">
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c rd /s /q www" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'rm -rfd www'" />
+                                </exec>
+                                <echo>
+                                </echo>
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c mkdir www" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'mkdir www'" />
+                                </exec>
+                                <echo>
+                                </echo>
+
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c rd /s /q platforms/android/app/src/main/assets/www" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'rm -rfd platforms/android/app/src/main/assets/www'" />
+                                </exec>
+                                <echo>
+                                </echo>
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c rd /s /q platforms/android/app/build/outputs/apk/" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'rm -rfd platforms/android/app/build/outputs/apk/'" />
+                                </exec>
+                                <echo>
+                                </echo>
+
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c mkdir tmp" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'mkdir tmp'" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>remove-tmp</id>
+                        <phase>process-sources</phase>
+                        <configuration>
+                            <target name="deleting-tmp">
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="false">
+                                    <arg line="/c rd /s /q tmp" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="false">
+                                    <arg line="-c 'rm -rfd tmp'" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>npm-install</id>
+                        <phase>compile</phase>
+                        <configuration>
+                            <target name="building">
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="true">
+                                    <arg line="/c npm install" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="true">
+                                    <arg line="-c 'npm install --unsafe-perm'" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>compile</id>
+                        <phase>package</phase>
+                        <configuration>
+                            <target name="building">
+                                <exec executable="cmd" dir="${project.basedir}" osfamily="windows" failonerror="true">
+                                    <arg line="/c phonegap build --release android --verbose" />
+                                </exec>
+                                <exec executable="bash" dir="${project.basedir}" osfamily="unix" failonerror="true">
+                                    <arg line="-c 'phonegap build ${buildType} android --verbose'" />
+                                </exec>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>unpack</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>com.markets.web</groupId>
+                                    <artifactId>indigo</artifactId>
+                                    <version>${indigo.version}</version>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.basedir}/tmp</outputDirectory>
+                                    <includes>**/*</includes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
+                <executions>
+                    <execution>
+                        <id>copy-resources</id>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.basedir}/www</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.basedir}/tmp/indigo/trading-platform</directory>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>2.4.1</version>
+                <configuration>
+                    <tagNameFormat>R-${project.version}</tagNameFormat>
+                    <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+                    <updateDependencies>false</updateDependencies>
+                </configuration>
+            </plugin>
+        </plugins>
+        <resources>
+            <resource>
+                <directory>dist</directory>
+            </resource>
+        </resources>
+    </build>
+    <repositories>
+        <repository>
+            <id>cosmos-ext-release-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/ext-release-local</url>
+        </repository>
+        <repository>
+            <id>cosmos-ext-snapshot-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/ext-snapshot-local</url>
+        </repository>
+        <repository>
+            <id>cosmos-libs-release-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/libs-release-local</url>
+        </repository>
+        <repository>
+            <id>cosmos-libs-snapshot-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/libs-snapshot-local</url>
+        </repository>
+        <repository>
+            <id>maven-central</id>
+            <url>http://central.maven.org/maven2/</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>cosmos-plugins-release-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/plugins-release-local</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>cosmos-libs-release-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/libs-release-local</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>cosmos-ext-release-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/ext-release-local</url>
+        </pluginRepository>
+        <pluginRepository>
+            <id>cosmos-ext-snapshot-local</id>
+            <url>https://artifactory.internal-services.com/artifactory/ext-snapshot-local</url>
+        </pluginRepository>
+    </pluginRepositories>
+
+    <distributionManagement>
+        <repository>
+            <id>local-markets-release</id>
+            <name>kstt-libs-release-local</name>
+            <url>${artifactory.url}/libs-release-local</url>
+        </repository>
+        <snapshotRepository>
+            <id>local-markets-snapshot</id>
+            <name>kstt-libs-snapshot-local</name>
+            <url>${artifactory.url}/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+</project>

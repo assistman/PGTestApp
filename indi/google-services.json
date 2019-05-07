@@ -1,0 +1,71 @@
+{
+  "project_info": {
+    "project_number": "21155591901",
+    "firebase_url": "https://api-project-21155591901.firebaseio.com",
+    "project_id": "api-project-21155591901",
+    "storage_bucket": "api-project-21155591901.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21155591901:android:10d337e9ee8d9b19",
+        "android_client_info": {
+          "package_name": "com.markets.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21155591901-33j2sormqd32njcg0dlqvhqvscnqbl1p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.markets.android",
+            "certificate_hash": "5ed0127518b8cffa0633a9cf53386aec63846f18"
+          }
+        },
+        {
+          "client_id": "21155591901-l7dtk08ic70tb04b8akj6gaujntmoec4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.markets.android",
+            "certificate_hash": "57548937f8e71637b4710d2337f58c4decfde5e2"
+          }
+        },
+        {
+          "client_id": "21155591901-3isu8mp2fid95i2o6sl3pp24t3vforrd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmzVg93H42VvKK3TEd-hNWv5-FDedPLWA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21155591901-3isu8mp2fid95i2o6sl3pp24t3vforrd.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "21155591901-b2kemp040bcirnpopmk4i5vho5ajr9eg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.marketstrader.cosmos",
+                "app_store_id": "875786044"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
