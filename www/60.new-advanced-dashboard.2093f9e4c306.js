@@ -1,1 +1,0 @@
-webpackJsonp([60],{1935:function(e,n,a){"use strict";Object.defineProperty(n,"__esModule",{value:!0}),a.d(n,"NewAdvancedDashboard",function(){return u});var t=a(1),r=a.n(t),d=a(823),u=function(){return r.a.createElement(d.LazyNewAdvancedDashboardDesktop,null)};n.default=u}});
