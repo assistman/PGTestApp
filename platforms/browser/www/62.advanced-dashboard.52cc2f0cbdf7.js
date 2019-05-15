@@ -1,0 +1,11 @@
+webpackJsonp([62],{
+
+/***/ 2028:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("Object.defineProperty(__webpack_exports__, \"__esModule\", { value: true });\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"AdvancedDashboard\", function() { return AdvancedDashboard; });\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(4);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_device__ = __webpack_require__(18);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_device___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_device__);\n/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__DashboardLazyModules__ = __webpack_require__(852);\n\n\n\n\n\nvar AdvancedDashboard = function AdvancedDashboard() {\n    if (__WEBPACK_IMPORTED_MODULE_1_device___default.a.desktop()) {\n        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DashboardLazyModules__[\"LazyAdvancedDashboardDesktop\"], null);\n    }\n\n    if (__WEBPACK_IMPORTED_MODULE_1_device___default.a.tablet()) {\n        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DashboardLazyModules__[\"LazyAdvancedDashboardTablet\"], null);\n    }\n\n    if (__WEBPACK_IMPORTED_MODULE_1_device___default.a.mobile()) {\n        return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_2__DashboardLazyModules__[\"LazyAdvancedDashboardMobile\"], null);\n    }\n\n    return null;\n};\n\n/* harmony default export */ __webpack_exports__[\"default\"] = (AdvancedDashboard);\n\n//////////////////\n// WEBPACK FOOTER\n// ./src/js/modules/dashboard/components/AdvancedDashboard.jsx\n// module id = 2028\n// module chunks = 62\n\n//# sourceURL=webpack:///./src/js/modules/dashboard/components/AdvancedDashboard.jsx?");
+
+/***/ })
+
+});
