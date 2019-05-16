@@ -5,7 +5,7 @@
         TradeTech Markets LIMITED
     </description>
     
-    <name short="Markets.com">Markets.com Online Trading app</name>
+    <name short="Markets.com">Markets.com</name>
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
     <plugin name="cordova-plugin-media-capture" />
