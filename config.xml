@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<widget id="com.adobe.phonegap.app" version="70.93" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+<widget id="com.marketstrader.cosmos" version="70.93" xmlns="http://www.w3.org/ns/widgets" xmlns:gap="http://phonegap.com/ns/1.0">
+    <description>
+        Markets.com: Online Trading
+    </description>
+    
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
     <plugin name="cordova-plugin-media-capture" />
