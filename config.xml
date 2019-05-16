@@ -5,7 +5,7 @@
         Markets.com: Online Trading
     </description>
     
-    <name short="Markets">Markets.com: Online Trading</name>
+    <name short="Markets">Markets</name>
     <plugin name="cordova-plugin-battery-status" />
     <plugin name="cordova-plugin-camera" />
     <plugin name="cordova-plugin-media-capture" />
