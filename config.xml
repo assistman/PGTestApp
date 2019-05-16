@@ -60,8 +60,8 @@
         <splash height="1536" src="resources/splash/ios/Default-Landscape@2x~ipad.png" width="2048" />
         <splash height="1136" src="resources/splash/ios/Default-568h@2x~iphone.png" width="640" />
         <splash height="1334" src="resources/splash/ios/iPhone8.png" width="750" />
-        <splash height="1125" src="resources/splash/ios/iPhoneX.png" width="2436" />
-        <splash height="1242" src="resources/splash/ios/iPhone8_plus.png" width="2208" />
+        <splash height="2436" src="resources/splash/ios/iPhoneX.png" width="1125" />
+        <splash height="2208" src="resources/splash/ios/iPhone8_plus.png" width="1242" />
         
         <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
         <allow-intent href="http://*/*" />
