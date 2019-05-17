@@ -39,6 +39,7 @@
     <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
     <preference name="SuppressesIncrementalRendering" value="true"/>
     <preference name="GapBetweenPages" value="0"/>
+    <preference name="ShowSplashScreenSpinner" value="false"/>
 
     <platform name="ios">
         <icon height="167" src="resources/icon/ios/AppIcon167x167.png" width="167" />
@@ -63,7 +64,7 @@
         <splash height="1334" src="resources/splash/ios/Default-Portrait-750h@2x.png" width="750" />
         <splash height="2436" src="resources/splash/ios/Default-Portrait-2436h@3x.png" width="1125" />
         <splash height="2208" src="resources/splash/ios/Default-Portrait-736h@3x.png" width="1242" />
-        
+
         <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
         <allow-intent href="http://*/*" />
         <allow-intent href="https://*/*" />
