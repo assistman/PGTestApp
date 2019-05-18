@@ -37,11 +37,12 @@
     <preference name="detect-data-types"          value="true" />
     <preference name="exit-on-suspend"            value="false" />
     <preference name="KeyboardDisplayRequiresUserAction" value="false"/>
-    <preference name="SuppressesIncrementalRendering" value="true"/>
     <preference name="GapBetweenPages" value="0"/>
-    <preference name="ShowSplashScreenSpinner" value="false"/>
 
     <platform name="ios">
+        <preference name="ShowSplashScreenSpinner" value="false"/>
+        <preference name="SuppressesIncrementalRendering" value="true"/>
+
         <icon height="167" src="resources/icon/ios/AppIcon167x167.png" width="167" />
         <icon height="76" src="resources/icon/ios/AppIcon76X76.png" width="76" />
         <icon height="152" src="resources/icon/ios/AppIcon76X76@2x.png.png" width="152" />
@@ -65,7 +66,7 @@
         <splash height="2436" src="resources/splash/ios/Default-Portrait-2436h@3x.png" width="1125" />
         <splash height="2208" src="resources/splash/ios/Default-Portrait-736h@3x.png" width="1242" />
 
-        <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='true' allows-local-networking='true' />
+        <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='false' allows-local-networking='true' />
         <allow-intent href="http://*/*" />
         <allow-intent href="https://*/*" />
         <allow-intent href="telprompt:*" />
