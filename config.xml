@@ -39,8 +39,7 @@
     <preference name="GapBetweenPages" value="0"/>
 
     <platform name="ios">
-        <preference name="ShowSplashScreenSpinner" value="false"/>
-        <preference name="SuppressesIncrementalRendering" value="true"/>
+        <preference name="SuppressesIncrementalRendering" value="false"/>
 
         <icon height="167" src="resources/icon/ios/AppIcon167x167.png" width="167" />
         <icon height="76" src="resources/icon/ios/AppIcon76X76.png" width="76" />
@@ -57,7 +56,7 @@
         <icon height="1024" src="resources/icon/ios/AppIcon1024X1024.png" width="1024" />
         
         <!-- 2732x2732 -->
-        <splash src="resources/splash/ios/Default@2x~universal~anyany.png" />
+        <splash src="www/splash/ios/Default@2x~universal~anyany.png" />
 
         <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='false' allows-local-networking='true' />
         <allow-intent href="http://*/*" />

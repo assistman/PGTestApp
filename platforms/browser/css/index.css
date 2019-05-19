@@ -43,6 +43,8 @@ body {
     padding:0px;
     text-transform:uppercase;
     width:100%;
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0 */
+    padding-top: env(safe-area-inset-top); /* iOS 11.2 */
 }
 
 /* Portrait layout (default) */
