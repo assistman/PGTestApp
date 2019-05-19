@@ -23,7 +23,6 @@
     <plugin name="cordova-plugin-media" />
     <plugin name="cordova-plugin-statusbar" />
     <plugin name="cordova-plugin-network-information" />
-    <plugin name="cordova-plugin-splashscreen" />
     <plugin name="cordova-plugin-vibration" />
     <plugin name="cordova-plugin-whitelist" version="1" />
 
@@ -56,7 +55,8 @@
         <icon height="58" src="resources/icon/ios/AppIcon29X29@2x.png" width="58" />
         <icon height="87" src="resources/icon/ios/AppIcon29X29@3x.png" width="87" />
         <icon height="1024" src="resources/icon/ios/AppIcon1024X1024.png" width="1024" />
-
+        
+        <!-- 2732x2732 -->
         <splash src="resources/splash/ios/Default@2x~universal~anyany.png" />
 
         <access origin='*' allows-arbitrary-loads-for-media='true' allows-arbitrary-loads-in-web-content='false' allows-local-networking='true' />
